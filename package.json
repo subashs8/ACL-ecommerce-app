@@ -1,7 +1,7 @@
 {
   "name": "internship_js",
   "version": "1.0.0",
-  "description": "",
+  "description": "node api on heroku",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +19,18 @@
     "mongo": "^0.1.0",
     "mongoose": "^6.5.0"
   },
+  "engines":{
+    "node": "12.16.3"
+  },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subashs8/ACL-ecommerce-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/subashs8/ACL-ecommerce-app/issues"
+  },
+  "homepage": "https://github.com/subashs8/ACL-ecommerce-app#readme"
 }
