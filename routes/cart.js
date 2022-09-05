@@ -33,6 +33,20 @@ router.get("/", checkAuth, async (req, res) => {
     }
     });
 
+    router.get("/:id", checkAuth, async (req, res) => {
+        const owner = req.params.id;
+        try {
+            const cart = await Cart.findOne({custId:owner});
+            //filter
+        if (cart) {
+             res.status(200).send(cart);
+        } else {
+              res.send(null);
+        }
+        } catch (error) {
+            res.status(500).send();
+        }
+        });
 
 router.get('/full-details', function(req, res) {
     Cart

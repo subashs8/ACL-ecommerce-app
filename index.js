@@ -7,7 +7,7 @@ const connectDB = require('./utils/dbConn');
 const productRoutes = require('./routes/product');
 const cartRoutes = require('./routes/cart');
 const employeeRoutes = require('./routes/employee');
-const customerRoutes = require('./routes/customer');
+const userRoutes = require('./routes/users');
 
 // import npm modules
 const express = require('express');
@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
 app.use('/product', productRoutes);
 app.use('/cart', cartRoutes);
 app.use('/employee', employeeRoutes);
-app.use('/customer', customerRoutes);
+app.use('/users', userRoutes);
 
 // error handling if route is not found 
 // placed after all routes, cos it will be called only after all routes failed to match

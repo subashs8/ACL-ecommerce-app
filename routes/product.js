@@ -8,8 +8,8 @@ const Product = require('./../schemas/product');
 router.get('/', function(req, res) {
     Product
         .find()
-        .select('_id productName description productType brand price discount gender')
-        .sort([['productType', 1], ['brand', 1]]) // for asc and one field .sort('productName') can be used
+        .select('_id productName description productType price discount')
+        .sort([['productType', 1]]) // for asc and one field .sort('productName') can be used
         // .sort('productType')
         .exec()
         .then(documents => {
@@ -25,7 +25,7 @@ router.get('/:id', function(req, res) {
     const id = req.params.id;
     Product
         .findById(id)
-        .select('_id productName description productType brand price discount gender')
+        .select('_id productName description productType price discount')
         .exec()
         .then(document => {
             res.status(200).json(document);
@@ -43,10 +43,8 @@ router.post('/', function(req, res) {
         productName: req.body["productName"],
         description: req.body["description"],
         productType: req.body["productType"],
-        brand: req.body["brand"],
         price: req.body["price"],
         discount: req.body["discount"],
-        gender: req.body["gender"]
     })
 
     // save the document to collection
@@ -99,7 +97,7 @@ router.get('/brand/:brandName', function(req, res) {
     Product
         .find()
         .where('brand').equals(req.params.brandName)
-        .select('_id productName description productType brand price discount gender')
+        .select('_id productName description productType price discount')
         .exec()
         .then(documents => {
             res.status(200).json(documents);

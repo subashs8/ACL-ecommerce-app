@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.schema;
 
-var customerSchema = mongoose.Schema({
+var userSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     name: {type: String, required: true},
     mail: { 
@@ -22,12 +22,7 @@ var customerSchema = mongoose.Schema({
     DOB: {
         type: Date,
         required: true
-    },
-    // address: {
-    //     choices: [String],
-    //     required: true,
-
-    // }
+    }
 });
 
-module.exports = mongoose.model('Customer', customerSchema);
+module.exports = mongoose.model('User', userSchema);
