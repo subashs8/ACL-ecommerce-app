@@ -1,5 +1,3 @@
-const PORT = process.env.PORT || 3000;
-
 // import custom modules
 const connectDB = require('./utils/dbConn');
 
@@ -61,7 +59,7 @@ app.use((error, req, res, next) => {
 
 // on mongoose db connected, listen to express app port
 mongoose.connection.once('open', () => {
-    app.listen(PORT, function () {
+    app.listen(process.env.PORT || 3000, function () {
         console.log('Port Listening');
     });
 });
